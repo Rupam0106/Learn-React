@@ -1,16 +1,11 @@
 import { useState } from "react";
+import ListGroup from '../../shared/interface/ListGroupInterface'
 
-interface Props {
-  items: string[];
-  heading: string;
-  onSelectItem: (item: string) => void;
-}
-
-function ListGroup({ items, heading, onSelectItem }: Props) {
+function ListGroup({ items, heading, onSelectItem }: ListGroup) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
-    <>
+    <div className="flex justify-items-center p-6">
       <h1>{heading}</h1>
       {items.length === 0 && <p>No item found</p>}
       <ul className="list">
@@ -31,7 +26,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
